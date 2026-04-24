@@ -12,7 +12,7 @@ st.title("🔥 LinkedIn Bio Roaster")
 st.caption("Powered by LLaMA 3 via Groq")
 st.divider()
 
-client = Groq(api_key="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")
+client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
 intensity = st.select_slider(
     "Roast Intensity",
