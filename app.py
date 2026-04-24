@@ -14,7 +14,7 @@ st.caption("Powered by LLaMA 3 via Groq")
 st.divider()
 
 # Connect to Groq
-client = Groq(api_key="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")
+client = Groq(api_key="GROQ_API_KEY")
 
 # Intensity slider
 intensity = st.select_slider(
