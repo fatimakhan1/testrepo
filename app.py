@@ -1,6 +1,5 @@
 # app.py -- LinkedIn Bio Roaster
 # Powered by Groq + LLaMA 3  |  Built at DataYard
-
 import streamlit as st
 from groq import Groq
 
@@ -10,13 +9,12 @@ st.set_page_config(
     page_icon="🔥",
     layout="centered"
 )
-
 st.title("🔥 LinkedIn Bio Roaster")
 st.caption("Powered by LLaMA 3 via Groq")
 st.divider()
 
-# Connect to Groq using the API key stored in Streamlit secrets
-client = Groq(api_key=st.secrets["GROQ_API_KEY"])
+# Connect to Groq
+client = Groq(api_key="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")
 
 # Intensity slider
 intensity = st.select_slider(
@@ -30,15 +28,12 @@ PROMPTS = {
     "Mild": """You are a kind but honest LinkedIn bio reviewer.
 Point out cliches and buzzwords with light humour.
 Be encouraging. End with 2 specific genuine compliments.""",
-
     "Medium": """You are a witty LinkedIn bio roaster.
 Call out buzzwords, humble-brags, and corporate speak with sharp humour.
 Be funny but not cruel. End with one genuine compliment.""",
-
     "Savage": """You are a savage LinkedIn bio roaster with zero tolerance for nonsense.
 Destroy the buzzwords, dismantle the humble-brags, mock the cliches mercilessly.
 Be hilarious and cutting. End with one tiny genuine compliment.""",
-
     "Brutal": """You are the most ruthless LinkedIn bio critic alive.
 Eviscerate this bio. Name every buzzword. Destroy every humble-brag.
 Be absolutely savage. End with one sentence of genuine feedback."""
@@ -65,7 +60,6 @@ if st.button("Roast Me", type="primary", use_container_width=True):
                 ]
             )
             roast = response.choices[0].message.content
-
         st.divider()
         st.subheader(f"{intensity} Roast")
         st.write(roast)
