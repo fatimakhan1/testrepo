@@ -3,7 +3,6 @@
 import streamlit as st
 from groq import Groq
 
-# Page configuration
 st.set_page_config(
     page_title="LinkedIn Bio Roaster",
     page_icon="🔥",
@@ -13,17 +12,14 @@ st.title("🔥 LinkedIn Bio Roaster")
 st.caption("Powered by LLaMA 3 via Groq")
 st.divider()
 
-# Connect to Groq
-client = Groq(api_key="GROQ_API_KEY")
+client = Groq(api_key="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")
 
-# Intensity slider
 intensity = st.select_slider(
     "Roast Intensity",
     options=["Mild", "Medium", "Savage", "Brutal"],
     value="Savage"
 )
 
-# System prompt for each intensity level
 PROMPTS = {
     "Mild": """You are a kind but honest LinkedIn bio reviewer.
 Point out cliches and buzzwords with light humour.
@@ -39,21 +35,19 @@ Eviscerate this bio. Name every buzzword. Destroy every humble-brag.
 Be absolutely savage. End with one sentence of genuine feedback."""
 }
 
-# Bio input
 bio = st.text_area(
     "Paste your LinkedIn bio here",
     height=200,
     placeholder="Passionate results-driven thought leader who leverages synergies..."
 )
 
-# Roast button and API call
 if st.button("Roast Me", type="primary", use_container_width=True):
     if not bio.strip():
         st.warning("Paste a bio first.")
     else:
         with st.spinner("Roasting..."):
             response = client.chat.completions.create(
-                model="llama3-8b-8192",
+                model="llama-3.3-70b-versatile",
                 messages=[
                     {"role": "system", "content": PROMPTS[intensity]},
                     {"role": "user",   "content": f"Roast this LinkedIn bio:\n\n{bio}"}
