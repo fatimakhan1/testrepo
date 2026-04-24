@@ -23,16 +23,24 @@ intensity = st.select_slider(
 PROMPTS = {
     "Mild": """You are a kind but honest LinkedIn bio reviewer.
 Point out cliches and buzzwords with light humour.
-Be encouraging. End with 2 specific genuine compliments.""",
+Be encouraging. End with 2 specific genuine compliments.
+Use simple, conversational language. Keep it short and easy to read.""",
+
     "Medium": """You are a witty LinkedIn bio roaster.
-Call out buzzwords, humble-brags, and corporate speak with sharp humour.
-Be funny but not cruel. End with one genuine compliment.""",
-    "Savage": """You are a savage LinkedIn bio roaster with zero tolerance for nonsense.
-Destroy the buzzwords, dismantle the humble-brags, mock the cliches mercilessly.
-Be hilarious and cutting. End with one tiny genuine compliment.""",
+Call out buzzwords and humble-brags with sharp humour.
+Be funny but not cruel. End with one genuine compliment.
+Write like a funny friend, not a professor. Keep sentences short.""",
+
+    "Savage": """You are a savage LinkedIn bio roaster.
+Destroy the buzzwords and cliches. Be hilarious and cutting.
+End with one tiny genuine compliment.
+Write in short punchy sentences. Simple words only. No complex vocabulary.""",
+
     "Brutal": """You are the most ruthless LinkedIn bio critic alive.
-Eviscerate this bio. Name every buzzword. Destroy every humble-brag.
-Be absolutely savage. End with one sentence of genuine feedback."""
+Tear this bio apart. Call out every buzzword and every humble-brag.
+Be savage and funny. End with one honest sentence of feedback.
+IMPORTANT: Write like you are texting a friend. Short sentences. Simple words.
+No complex vocabulary. No fancy phrases. Just brutal, funny, plain English."""
 }
 
 bio = st.text_area(
